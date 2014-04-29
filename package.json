@@ -1,0 +1,23 @@
+{
+	"name" : "media-encoder",
+	"version" : "0.0.0",
+	"author": "kdi",
+	"description": "App for encoding media files (offline)",
+	"homepage": "https://github.com/kdi/media-encoder",
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/kdi/media-encoder.git"
+	},
+	"licenses": [
+		{
+		"type": "MIT license",
+		"url": "http://makesites.org/licenses/MIT"
+		}
+	],
+	"engine" : {
+		"node" : ">=0.8.x"
+	},
+	"dependencies" : {
+		"artycles": "*"
+	}
+}
