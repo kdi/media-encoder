@@ -1,0 +1,26 @@
+<!document html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+	{{{block "styles"}}}
+
+</head>
+<body class="{{page}}{{#if authenticated}} auth{{/if}}">
+
+<header class="top clearfix">
+	<h1 class="logo"><a href="/">{{site.name}}</a></h1>
+</header>
+
+<div class="content clearfix">
+
+{{{body}}}
+
+</div>
+
+{{{block "scripts"}}}
+
+</body>
+</html>

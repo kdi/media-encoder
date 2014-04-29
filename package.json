@@ -19,6 +19,8 @@
 	},
 	"dependencies" : {
 		"artycles": "*",
-		"brisk": "*"
+		"brisk": "*",
+		"express": "4.1.1",
+		"hbs": "2.6.0"
 	}
 }
