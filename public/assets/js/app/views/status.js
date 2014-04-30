@@ -7,6 +7,7 @@ define([
 		el: ".status",
 
 		options: {
+			autoRender: false,
 			url: "/assets/html/status.html"
 		}
 	});

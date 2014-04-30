@@ -21,7 +21,7 @@
 	// FIX: jQuery pass dataTransfer property
 	if( w.jQuery ) w.jQuery.event.props.push('dataTransfer');
 
-
+console.log(isAPP);
 // extend existing params
 var params = View.prototype.params || new Backbone.Model();
 
@@ -169,6 +169,7 @@ params.set({
 			this.trigger("dragleave", e);
 		},
 		_drop: function( e ) {
+			console.log("ddrrrrrrrrrrooooooppopop");
 			var monitor = _.inArray("mouse", this.options.monitor) && _.inArray("drag", this.options.mouse.states);
 			if( !monitor ) return;
 			if( _.inDebug() ) console.log("_drop");
@@ -234,9 +235,11 @@ params.set({
 			APP.Input.Mouse = Mouse;
 			// save namespace
 			window.APP = APP;
+		} else {
+			//
+			Backbone.View = Mouse;
 		}
 		// update Backbone namespace regardless
-		Backbone.View = Mouse;
 		Backbone.Input = Backbone.Input || {};
 		Backbone.Input.Mouse = Mouse;
 		window.Backbone = Backbone;

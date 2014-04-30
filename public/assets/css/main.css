@@ -25,3 +25,10 @@ header.top a {
 	font-size: 4em;
 	color: #ccc;
 }
+
+.status progress{
+	display: block;
+	width: 80%;
+	margin: 0 auto;
+
+}

@@ -45,14 +45,19 @@ var config = {
 			],
 			"exports": "Backbone"
 		},
+		"underscore": {
+			"exports": "_"
+		},
 		"backbone.app": {
 			"deps": [
 				"backbone"
 			],
 			"exports": "APP"
 		},
-		"underscore": {
-			"exports": "_"
+		"backbone.input.mouse": {
+			"deps": [
+				"backbone.app"
+			]
 		},
 		"helpers/underscore": {
 			"deps": [
@@ -73,6 +78,7 @@ var config = {
 		"json3",
 		"handlebars",
 		"backbone.app",
+		"backbone.input.mouse",
 		"helpers/underscore",
 		"helpers/handlebars"
 	]

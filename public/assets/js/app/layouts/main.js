@@ -14,7 +14,9 @@ define([
 				main: new Main(),
 				status: new Status(),
 				toolbar: new Toolbar()
-			})
+			});
+			// hack
+			this.get("main").preRender();
 
 			return APP.Layout.prototype.initialize.call(this, options);
 		}
