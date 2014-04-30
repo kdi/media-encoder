@@ -29,42 +29,46 @@ define([
 		},
 
 		onDrag: function( e ){
+			e.stopPropagation();
+			e.preventDefault();
+
 			if(e.originalEvent.dataTransfer){
 				if(e.originalEvent.dataTransfer.files.length) {
-					console.log("gggg", e.originalEvent.dataTransfer.files);
-					//upload(e.originalEvent.dataTransfer.files);
+					//console.log("gggg", e.originalEvent.dataTransfer.files);
+					this.upload(e.originalEvent.dataTransfer.files);
 				}
 			}
 
 		},
 
-		// supporting only one file at a time
-		upload: function( file ){
+		upload: function( files ){
 			var self = this;
 
-			$.ajax({
-				type: "POST",
-				url: "/process",
-				 xhr: function() {  // Custom XMLHttpRequest
-					var xhr = $.ajaxSettings.xhr();
-					if(xhr.upload){ // Check if upload property exists
-						xhr.upload.addEventListener('progress', _.bind(self.progress, self), false); // For handling the progress of the upload
-					}
-					return xhr;
-				},
-				enctype: 'multipart/form-data',
-				data: {
-					file: file
-				},
-				success: function () {
-					console.log("Data Uploaded: ");
-				}
-			});
+			var formData = new FormData();
+
+			for (var i = 0; i < files.length; i++) {
+				formData.append('file', files[i]);
+			}
+
+			// barebones xhr from: http://html5demos.com/dnd-upload
+			var xhr = new XMLHttpRequest();
+			xhr.open('POST', '/process');
+			xhr.onload = function() {
+				console.log("Data Uploaded: ");
+			};
+
+			xhr.upload.onprogress = _.bind(this.progress, this);
+
+			xhr.send(formData);
+
 		},
 
 		progress: function (e){
 			if(e.lengthComputable){
+				console.log("e.loaded", e.loaded);
 				//$('progress').attr({value:e.loaded,max:e.total});
+				//var complete = (event.loaded / event.total * 100 | 0);
+				//progress.value = progress.innerHTML = complete;
 			}
 		}
 
