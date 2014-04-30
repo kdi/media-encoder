@@ -1,7 +1,7 @@
+//var busboy = require('connect-busboy');
 
 module.exports = function(site){
 	var app = site.modules.app;
-	var helper = site.helpers.express;
 
 	return {
 		"development": {
@@ -27,7 +27,14 @@ module.exports = function(site){
 				"views" : app.locals.root + "app/views"
 			},
 			"use" : {
-				//"bodyParser" : true
+				/*
+				"busboy" : busboy({
+					immediate: true,
+					limits: {
+						fileSize: 100 * 1024 * 1024
+					}
+				})
+				*/
 			}
 
 		}

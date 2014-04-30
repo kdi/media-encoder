@@ -20,6 +20,7 @@
 	"dependencies" : {
 		"artycles": "*",
 		"brisk": "*",
+		"busboy": "0.2.5",
 		"express": "4.1.1",
 		"hbs": "2.6.0"
 	}
