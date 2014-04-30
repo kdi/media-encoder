@@ -8,10 +8,17 @@ function init(){
 	Backbone.ready(function(){
 
 		// initialize APP
-		app = new APP();
-		window.app = app;
-		// start backbone history
-		Backbone.history.start();
+		new APP({
+			require: "app/controllers/default"
+		}, function( app ){
+
+			window.app = app;
+			// start backbone history
+			Backbone.history.start();
+		}
+
+		);
+
 
 	});
 }
