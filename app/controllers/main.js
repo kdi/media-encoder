@@ -1,5 +1,6 @@
 var Main = require("brisk").getBaseController("main"),
 	Busboy = require('busboy'),
+	Artycles = require('artycles'),
 	path = require('path'),
 	fs = require('fs'),
 	os = require('os');
@@ -25,6 +26,7 @@ var controller = Main.extend({
 				file.pipe(fs.createWriteStream(saveTo));
 				file.on('end', function() {
 					console.log('File [' + filename + '] Finished', saveTo);
+					encode( saveTo, req.site.config.root);
 				});
 			});
 			busboy.on('finish', function() {
@@ -39,6 +41,14 @@ var controller = Main.extend({
 	}
 
 });
+
+
+function encode( file, root ){
+	var artycles = new Artycles({
+		store: root +"store/"
+	});
+	artycles.video( file );
+}
 
 
 module.exports = controller;
