@@ -13,7 +13,13 @@ define([
 		el: ".main",
 
 		options: {
-			monitor: ["mouse"]
+			monitor: ["mouse"],
+			acceptedTypes: {
+				'image/png': false,
+				'image/jpeg': false,
+				'image/gif': false,
+				'video/mp4': true
+			},
 		},
 
 		preRender: function(){
@@ -49,9 +55,17 @@ define([
 			var formData = new FormData();
 
 			for (var i = 0; i < files.length; i++) {
-				data.add(files[i]);
-				formData.append('file', files[i]);
+				// add only accepted formats
+				if( this.options.acceptedTypes[files[i].type] ) {
+					data.add(files[i]);
+					formData.append('file', files[i]);
+				} else {
+					alert("Not accepted file type");
+				}
 			}
+
+			// exit now if no valid files
+			if(!data.length) return;
 
 			// new status
 			this.status = new Status({
