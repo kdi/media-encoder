@@ -1,6 +1,8 @@
+{{#each files}}
 <ul id="fileinfo">
-	<li id="filename"></li>
-	<li id="filesize"></li>
-	<li id="filetype"></li>
-	<li id="filedim"></li>
+	<li id="filename">{{name}}</li>
+	<li id="filesize">{{size}}</li>
+	<li id="filetype">{{type}}</li>
 </ul>
+{{/each}}
+<progress max="100" value="{{progress}}"></progress>

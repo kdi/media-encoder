@@ -1,6 +1,7 @@
 define([
-	'backbone.app'
-], function( APP ){
+	'backbone.app',
+	'app/views/status'
+], function( APP, Status ){
 
 // variables
 
@@ -44,11 +45,21 @@ define([
 		upload: function( files ){
 			var self = this;
 
+			var data = new APP.Collection();
 			var formData = new FormData();
 
 			for (var i = 0; i < files.length; i++) {
+				data.add(files[i]);
 				formData.append('file', files[i]);
 			}
+
+			// new status
+			this.status = new Status({
+				data: {
+					files: data,
+					progress: 0
+				}
+			});
 
 			// barebones xhr from: http://html5demos.com/dnd-upload
 			var xhr = new XMLHttpRequest();
@@ -65,10 +76,8 @@ define([
 
 		progress: function (e){
 			if(e.lengthComputable){
-				console.log("e.loaded", e.loaded);
-				//$('progress').attr({value:e.loaded,max:e.total});
-				//var complete = (event.loaded / event.total * 100 | 0);
-				//progress.value = progress.innerHTML = complete;
+				//this.trigger("upload-progress", e);
+				this.status.trigger("progress", e);
 			}
 		}
 

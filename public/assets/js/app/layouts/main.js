@@ -1,9 +1,8 @@
 define([
 	'backbone.app',
 	'app/views/main',
-	'app/views/status',
 	'app/views/toolbar'
-], function( APP, Main, Status, Toolbar ){
+], function( APP, Main, Toolbar ){
 
 	// Routers
 	APP.Layouts.Main = APP.Layout.extend({
@@ -12,7 +11,6 @@ define([
 
 			this.set({
 				main: new Main(),
-				status: new Status(),
 				toolbar: new Toolbar()
 			});
 			// hack
