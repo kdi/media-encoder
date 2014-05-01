@@ -78,6 +78,10 @@ define([
 			// barebones xhr from: http://html5demos.com/dnd-upload
 			var xhr = new XMLHttpRequest();
 			xhr.open('POST', '/process');
+			// assume only one file (for now...)
+			//xhr.setRequestHeader("Content-type", data.at(0).get("type") );
+			xhr.setRequestHeader("X_FILE_NAME", data.at(0).get("name") );
+
 			xhr.onload = function() {
 				console.log("Data Uploaded: ");
 			};

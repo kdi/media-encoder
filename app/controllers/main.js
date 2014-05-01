@@ -21,10 +21,10 @@ var controller = Main.extend({
 		if (req.method === 'POST') {
 			var busboy = new Busboy({ headers: req.headers });
 			busboy.on('file', function(fieldname, file, filename, encoding, mimetype) {
-				var saveTo = path.join(os.tmpDir(), path.basename(fieldname));
+				var saveTo = path.join(os.tmpDir(), path.basename(filename));
 				file.pipe(fs.createWriteStream(saveTo));
 				file.on('end', function() {
-					console.log('File [' + fieldname + '] Finished', saveTo);
+					console.log('File [' + filename + '] Finished', saveTo);
 				});
 			});
 			busboy.on('finish', function() {
