@@ -12,7 +12,9 @@ var helper = Main.extend({
 
 		this.express = app;
 
-	}
+	},
+
+	engine: require('hbs').__express,
 
 });
 

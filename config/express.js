@@ -19,9 +19,8 @@ module.exports = function(site){
 		},
 		"default": {
 
-			"engine" : {
-				"html" : require('hbs').__express
-			},
+			"engine" : "html",
+
 			"set" : {
 				"view engine" : "html",
 				"views" : app.locals.root + "app/views"
