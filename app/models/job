@@ -1,0 +1,7 @@
+var Parent = require("brisk").getBaseModel("model");
+
+var model = Parent.extend({
+
+});
+
+module.exports = model;
