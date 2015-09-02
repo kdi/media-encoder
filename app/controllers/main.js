@@ -46,14 +46,19 @@ var controller = Main.extend({
 function encode( file, root ){
 	var artycles = new Artycles({
 		path: root +"store/",
+		name: file.substring( file.lastIndexOf("/")+1, file.lastIndexOf(".") ),
 		source: {
 			remove: true// remove downloaded file
 		},
+		/*
 		files: {
-			prefix: file.substr(0, file.lastIndexOf("."))
+			scramble: true
 		}
+		*/
 	});
-	artycles.video( file );
+	// get format
+	var format = artycles.format( file );
+	if( format ) artycles[format]( file );
 }
 
 
