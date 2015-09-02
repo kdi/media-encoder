@@ -15,8 +15,8 @@ define([
 		options: {
 			monitor: ["mouse"],
 			acceptedTypes: {
-				'image/png': false,
-				'image/jpeg': false,
+				'image/png': true,
+				'image/jpeg': true,
 				'image/gif': false,
 				'video/mp4': true
 			},
