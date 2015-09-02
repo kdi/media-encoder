@@ -1,6 +1,6 @@
 {
 	"name" : "media-encoder",
-	"version" : "0.0.0",
+	"version" : "1.0.0",
 	"author": "kdi",
 	"private": true,
 	"description": "App for encoding media files (offline)",
