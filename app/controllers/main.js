@@ -48,6 +48,9 @@ function encode( file, root ){
 		path: root +"store/",
 		source: {
 			remove: true// remove downloaded file
+		},
+		files: {
+			prefix: file.substr(0, file.lastIndexOf("."));
 		}
 	});
 	artycles.video( file );
