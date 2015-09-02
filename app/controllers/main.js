@@ -50,7 +50,7 @@ function encode( file, root ){
 			remove: true// remove downloaded file
 		},
 		files: {
-			prefix: file.substr(0, file.lastIndexOf("."));
+			prefix: file.substr(0, file.lastIndexOf("."))
 		}
 	});
 	artycles.video( file );
