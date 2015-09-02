@@ -18,7 +18,7 @@
 		"node" : ">=0.8.x"
 	},
 	"dependencies" : {
-		"artycles": "0.2.1",
+		"artycles": "*",
 		"brisk": "0.9.1",
 		"busboy": "0.2.5",
 		"express": "4.1.1",
