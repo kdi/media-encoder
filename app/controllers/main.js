@@ -45,7 +45,10 @@ var controller = Main.extend({
 
 function encode( file, root ){
 	var artycles = new Artycles({
-		store: root +"store/"
+		path: root +"store/",
+		source: {
+			remove: true// remove downloaded file
+		}
 	});
 	artycles.video( file );
 }
